@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BATUMI VIP</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+body{
+
+  background:
+  linear-gradient(
+    rgba(0,0,0,0.82),
+    rgba(0,0,0,0.92)
+  ),
+  url("https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1400");
+
+  background-size:cover;
+  background-position:center;
+
+  min-height:100vh;
+
+  overflow-x:hidden;
+
+  color:white;
+}
+
+/* LOGO */
+
+.logo{
+
+  text-align:center;
+
+  color:#FFD700;
+
+  font-size:68px;
+
+  font-weight:900;
+
+  margin-top:50px;
+
+  text-shadow:
+  0 0 25px rgba(255,215,0,0.6);
+}
+
+/* SUB */
+
+.sub{
+
+  text-align:center;
+
+  margin-top:12px;
+
+  color:#d7d7d7;
+
+  font-size:20px;
+}
+
+/* GAMES */
+
+.games{
+
+  width:92%;
+
+  margin:45px auto;
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(2,1fr);
+
+  gap:18px;
+}
+
+.game{
+
+  background:#101820;
+
+  border-radius:24px;
+
+  overflow:hidden;
+
+  border:
+  1px solid rgba(255,255,255,0.05);
+
+  box-shadow:
+  0 0 18px rgba(0,0,0,0.4);
+}
+
+.game img{
+
+  width:100%;
+
+  height:150px;
+
+  object-fit:cover;
+}
+
+.game-info{
+
+  padding:14px;
+}
+
+.game-title{
+
+  font-size:22px;
+
+  font-weight:900;
+
+  color:#FFD700;
+}
+
+.game-desc{
+
+  margin-top:7px;
+
+  color:#cfcfcf;
+
+  font-size:15px;
+
+  line-height:1.5;
+}
+
+/* PACKAGES */
+
+.packages{
+
+  width:92%;
+
+  margin:10px auto 120px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:16px;
+}
+
+.package{
+
+  background:#101820;
+
+  border-radius:24px;
+
+  padding:20px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  border:
+  1px solid rgba(255,215,0,0.08);
+}
+
+.package-left h2{
+
+  color:#FFD700;
+
+  font-size:24px;
+}
+
+.package-left p{
+
+  margin-top:8px;
+
+  color:#d8d8d8;
+
+  font-size:16px;
+}
+
+.price{
+
+  background:#FFD700;
+
+  color:black;
+
+  font-weight:900;
+
+  padding:12px 18px;
+
+  border-radius:18px;
+
+  font-size:20px;
+}
+
+/* SUPPORT BUTTON */
+
+.support-btn{
+
+  position:fixed;
+
+  right:22px;
+  bottom:24px;
+
+  width:92px;
+  height:92px;
+
+  border:none;
+
+  border-radius:50%;
+
+  background:#FFD700;
+
+  z-index:999;
+
+  box-shadow:
+  0 0 30px rgba(255,215,0,0.6);
+
+  cursor:pointer;
+}
+
+.support-btn img{
+
+  width:58px;
+}
+
+/* NOTIFICATION */
+
+.notification{
+
+  position:absolute;
+
+  top:-2px;
+  right:-2px;
+
+  min-width:34px;
+  height:34px;
+
+  border-radius:50%;
+
+  background:#00c896;
+
+  color:white;
+
+  display:none;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-size:16px;
+
+  font-weight:900;
+
+  border:3px solid #08131d;
+}
+
+/* CHAT */
+
+.overlay{
+
+  position:fixed;
+
+  inset:0;
+
+  background:rgba(0,0,0,0.72);
+
+  display:none;
+
+  justify-content:center;
+
+  align-items:center;
+
+  z-index:9999;
+
+  padding:10px;
+}
+
+.chat{
+
+  width:100%;
+  max-width:450px;
+
+  height:86vh;
+
+  background:#0b141a;
+
+  border-radius:34px;
+
+  overflow:hidden;
+
+  display:flex;
+
+  flex-direction:column;
+}
+
+/* TOP */
+
+.chat-top{
+
+  height:88px;
+
+  background:#1b2b38;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  padding:0 16px;
+}
+
+.chat-left{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+}
+
+.chat-left img{
+
+  width:58px;
+  height:58px;
+}
+
+.chat-title{
+
+  color:#FFD700;
+
+  font-size:24px;
+
+  font-weight:900;
+}
+
+.chat-status{
+
+  color:#d5d5d5;
+
+  margin-top:5px;
+
+  font-size:14px;
+}
+
+.close-btn{
+
+  width:50px;
+  height:50px;
+
+  border:none;
+
+  border-radius:50%;
+
+  background:#FFD700;
+
+  color:black;
+
+  font-size:30px;
+
+  font-weight:900;
+}
+
+/* MESSAGES */
+
+.messages{
+
+  flex:1;
+
+  overflow-y:auto;
+
+  padding:18px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:14px;
+
+  background:
+  linear-gradient(
+    rgba(0,0,0,0.82),
+    rgba(0,0,0,0.88)
+  ),
+  url("https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1400");
+
+  background-size:cover;
+}
+
+.message{
+
+  max-width:75%;
+
+  padding:15px;
+
+  border-radius:20px;
+
+  font-size:18px;
+
+  line-height:1.5;
+
+  word-wrap:break-word;
+}
+
+/* USER */
+
+.user{
+
+  align-self:flex-end;
+
+  background:#FFD700;
+
+  color:black;
+
+  font-weight:700;
+}
+
+/* ADMIN */
+
+.admin{
+
+  align-self:flex-start;
+
+  background:#243645;
+
+  color:white;
+}
+
+/* INPUT */
+
+.bottom{
+
+  height:88px;
+
+  background:#1b2b38;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  padding:0 14px;
+}
+
+.bottom input{
+
+  flex:1;
+
+  height:56px;
+
+  border:none;
+
+  outline:none;
+
+  border-radius:16px;
+
+  background:#2b3945;
+
+  color:white;
+
+  padding:0 16px;
+
+  font-size:17px;
+}
+
+.bottom button{
+
+  width:115px;
+
+  height:56px;
+
+  border:none;
+
+  border-radius:16px;
+
+  background:#00c896;
+
+  color:white;
+
+  font-size:19px;
+
+  font-weight:900;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1 class="logo">
+  BATUMI VIP
+</h1>
+
+<div class="sub">
+  Premium Slot • Casino • VIP Paketlər
+</div>
+
+<!-- GAMES -->
+
+<div class="games">
+
+  <div class="game">
+
+    <img src="
+    https://images.unsplash.com/photo-1596838132731-3301c3fd4317?q=80&w=1000
+    ">
+
+    <div class="game-info">
+
+      <div class="game-title">
+        SLOT VIP
+      </div>
+
+      <div class="game-desc">
+        Böyük jackpot və yüksək qazanc imkanları.
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="game">
+
+    <img src="
+    https://images.unsplash.com/photo-1606166325683-e6deb697d301?q=80&w=1000
+    ">
+
+    <div class="game-info">
+
+      <div class="game-title">
+        MEYVƏ SLOT
+      </div>
+
+      <div class="game-desc">
+        Klassik meyvə slotları və bonus spinlər.
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="game">
+
+    <img src="
+    https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1000
+    ">
+
+    <div class="game-info">
+
+      <div class="game-title">
+        CASINO LIVE
+      </div>
+
+      <div class="game-desc">
+        Real kazino atmosferi və canlı oyunlar.
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="game">
+
+    <img src="
+    https://images.unsplash.com/photo-1511882150382-421056c89033?q=80&w=1000
+    ">
+
+    <div class="game-info">
+
+      <div class="game-title">
+        GOLD JACKPOT
+      </div>
+
+      <div class="game-desc">
+        Xüsusi VIP istifadəçilər üçün jackpot sistemi.
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- PACKAGES -->
+
+<div class="packages">
+
+  <div class="package">
+
+    <div class="package-left">
+
+      <h2>
+        BRONZE VIP
+      </h2>
+
+      <p>
+        Bonuslar və günlük hədiyyələr.
+      </p>
+
+    </div>
+
+    <div class="price">
+      50 AZN
+    </div>
+
+  </div>
+
+  <div class="package">
+
+    <div class="package-left">
+
+      <h2>
+        SILVER VIP
+      </h2>
+
+      <p>
+        Premium slot girişləri və cashback.
+      </p>
+
+    </div>
+
+    <div class="price">
+      100 AZN
+    </div>
+
+  </div>
+
+  <div class="package">
+
+    <div class="package-left">
+
+      <h2>
+        GOLD VIP
+      </h2>
+
+      <p>
+        Full VIP status və yüksək limitlər.
+      </p>
+
+    </div>
+
+    <div class="price">
+      250 AZN
+    </div>
+
+  </div>
+
+</div>
+
+<!-- SUPPORT -->
+
+<button
+class="support-btn"
+id="openChat"
+>
+
+<div
+class="notification"
+id="notification"
+>
+0
+</div>
+
+<img src="
+https://cdn-icons-png.flaticon.com/512/4712/4712109.png
+">
+
+</button>
+
+<!-- CHAT -->
+
+<div
+class="overlay"
+id="overlay"
+>
+
+<div class="chat">
+
+  <!-- TOP -->
+
+  <div class="chat-top">
+
+    <div class="chat-left">
+
+      <img src="
+      https://cdn-icons-png.flaticon.com/512/4712/4712109.png
+      ">
+
+      <div>
+
+        <div class="chat-title">
+          Batumi Support
+        </div>
+
+        <div class="chat-status">
+          Admin aktivdir
+        </div>
+
+      </div>
+
+    </div>
+
+    <button
+    class="close-btn"
+    id="closeChat"
+    >
+      ×
+    </button>
+
+  </div>
+
+  <!-- MESSAGES -->
+
+  <div
+  class="messages"
+  id="messages"
+  ></div>
+
+  <!-- INPUT -->
+
+  <div class="bottom">
+
+    <input
+      type="text"
+      id="messageInput"
+      placeholder="Mesaj yaz..."
+    >
+
+    <button
+    id="sendBtn"
+    >
+      Göndər
+    </button>
+
+  </div>
+
+</div>
+
+</div>
+
+<!-- FIREBASE -->
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+
+  getDatabase,
+  ref,
+  push,
+  onValue,
+  update
+
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+/* FIREBASE */
+
+const firebaseConfig = {
+
+  apiKey:
+  "AIzaSyBmtDa9fkBjd-J2tToJF_8CcPVZs3pJZsM",
+
+  authDomain:
+  "batumi-kazino-5a748.firebaseapp.com",
+
+  databaseURL:
+  "https://batumi-kazino-5a748-default-rtdb.firebaseio.com",
+
+  projectId:
+  "batumi-kazino-5a748",
+
+  storageBucket:
+  "batumi-kazino-5a748.appspot.com",
+
+  messagingSenderId:
+  "501153230995",
+
+  appId:
+  "1:501153230995:web:8dac82ebf1904fc1881d66"
+
+};
+
+const app =
+initializeApp(firebaseConfig);
+
+const db =
+getDatabase(app);
+
+/* USER */
+
+const username =
+localStorage.getItem("username");
+
+const phone =
+localStorage.getItem("phone");
+
+/* ELEMENTS */
+
+const openChat =
+document.getElementById("openChat");
+
+const closeChat =
+document.getElementById("closeChat");
+
+const overlay =
+document.getElementById("overlay");
+
+const sendBtn =
+document.getElementById("sendBtn");
+
+const input =
+document.getElementById("messageInput");
+
+const messages =
+document.getElementById("messages");
+
+const notification =
+document.getElementById("notification");
+
+/* OPEN */
+
+openChat.onclick = ()=>{
+
+  overlay.style.display =
+  "flex";
+
+  resetNotification();
+
+};
+
+/* CLOSE */
+
+closeChat.onclick = ()=>{
+
+  overlay.style.display =
+  "none";
+
+};
+
+/* SEND */
+
+async function sendMessage(){
+
+  const text =
+  input.value.trim();
+
+  if(text === ""){
+    return;
+  }
+
+  await push(
+    ref(db,"messages"),
+    {
+
+      username:username,
+
+      phone:phone,
+
+      text:text,
+
+      sender:"user",
+
+      time:Date.now(),
+
+      readByUser:true
+
+    }
+  );
+
+  input.value = "";
+
+}
+
+/* BUTTON */
+
+sendBtn.onclick =
+sendMessage;
+
+/* ENTER */
+
+input.addEventListener(
+  "keypress",
+  function(e){
+
+    if(e.key === "Enter"){
+
+      sendMessage();
+
+    }
+
+  }
+);
+
+/* RESET */
+
+function resetNotification(){
+
+  notification.style.display =
+  "none";
+
+  notification.innerText = "0";
+
+}
+
+/* REALTIME */
+
+onValue(
+  ref(db,"messages"),
+  (snapshot)=>{
+
+    messages.innerHTML = "";
+
+    const data =
+    snapshot.val();
+
+    if(!data){
+      return;
+    }
+
+    const all =
+    Object.entries(data)
+    .map(([id,msg])=>({
+
+      id,
+      ...msg
+
+    }));
+
+    const myMessages =
+    all
+    .filter(
+      msg=>msg.phone === phone
+    )
+    .sort((a,b)=>a.time-b.time);
+
+    let unread = 0;
+
+    myMessages.forEach((msg)=>{
+
+      /* NOTIFICATION */
+
+      if(
+
+        msg.sender === "admin"
+        &&
+
+        !msg.readByUser
+
+      ){
+
+        unread++;
+
+      }
+
+      /* MESSAGE */
+
+      messages.innerHTML += `
+
+      <div class="
+      message
+      ${msg.sender}
+      ">
+
+        ${msg.text}
+
+      </div>
+
+      `;
+
+    });
+
+    /* BADGE */
+
+    if(
+      unread > 0
+      &&
+      overlay.style.display !== "flex"
+    ){
+
+      notification.style.display =
+      "flex";
+
+      notification.innerText =
+      unread;
+
+    }
+
+    /* READ */
+
+    if(
+      overlay.style.display === "flex"
+    ){
+
+      myMessages.forEach((msg)=>{
+
+        if(
+          msg.sender === "admin"
+          &&
+          !msg.readByUser
+        ){
+
+          update(
+            ref(db,"messages/" + msg.id),
+            {
+
+              readByUser:true
+
+            }
+          );
+
+        }
+
+      });
+
+      resetNotification();
+
+    }
+
+    messages.scrollTop =
+    messages.scrollHeight;
+
+  }
+);
+
+</script>
+
+</body>
+</html>
