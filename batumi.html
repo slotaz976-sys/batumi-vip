@@ -1,0 +1,1104 @@
+<!DOCTYPE html>  <html lang="az">    <head>  <meta charset="UTF-8">  <meta  
+name="viewport"  
+content="width=device-width, initial-scale=1.0"  > 
+
+<title>BATUMI VIP</title>  <style>    *{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+
+background:#05070d;
+color:white;
+overflow-x:hidden;
+padding-bottom:120px;
+
+background-image:
+linear-gradient(
+rgba(0,0,0,.82),
+rgba(0,0,0,.92)
+),
+
+url("https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1400");
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+}
+
+/* HERO */
+
+.hero{
+
+padding:40px 20px 20px;
+text-align:center;
+}
+
+.logo{
+
+font-size:58px;
+font-weight:900;
+color:#FFD700;
+
+text-shadow:
+0 0 20px rgba(255,215,0,.45);
+}
+
+.sub{
+
+margin-top:10px;
+
+font-size:18px;
+
+color:#d7d7d7;
+line-height:1.5;
+}
+
+.start-btn{
+
+margin-top:25px;
+
+height:58px;
+
+padding:0 34px;
+
+border:none;
+
+border-radius:18px;
+
+background:
+linear-gradient(
+45deg,
+#FFD700,
+#ffb300
+);
+
+color:black;
+
+font-size:20px;
+
+font-weight:900;
+
+box-shadow:
+0 0 25px rgba(255,215,0,.35);
+}
+
+/* STATS */
+
+.stats{
+
+width:92%;
+
+margin:20px auto;
+
+display:grid;
+
+grid-template-columns:
+repeat(3,1fr);
+
+gap:12px;
+}
+
+.stat{
+
+background:
+rgba(16,24,32,.96);
+
+border-radius:24px;
+
+padding:18px 10px;
+
+text-align:center;
+
+backdrop-filter:blur(8px);
+
+border:
+1px solid rgba(255,255,255,.05);
+}
+
+.stat h2{
+
+color:#FFD700;
+
+font-size:24px;
+
+font-weight:900;
+}
+
+.stat p{
+
+margin-top:8px;
+
+font-size:13px;
+
+color:#d4d4d4;
+}
+
+/* TITLE */
+
+.title{
+
+width:92%;
+
+margin:28px auto 16px;
+
+font-size:28px;
+
+font-weight:900;
+}
+
+/* GAMES */
+
+.games{
+
+width:92%;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:
+repeat(2,1fr);
+
+gap:16px;
+}
+
+.game{
+
+background:
+rgba(15,22,30,.96);
+
+border-radius:24px;
+
+overflow:hidden;
+
+box-shadow:
+0 0 18px rgba(0,0,0,.45);
+}
+
+.game img{
+
+width:100%;
+height:150px;
+
+object-fit:cover;
+}
+
+.game-info{
+
+padding:16px;
+}
+
+.game-info h3{
+
+font-size:22px;
+
+font-weight:900;
+
+color:#FFD700;
+}
+
+.game-info p{
+
+margin-top:8px;
+
+font-size:14px;
+
+line-height:1.5;
+
+color:#d7d7d7;
+}
+
+/* VIP */
+
+.vip-list{
+
+width:92%;
+
+margin:auto;
+
+display:flex;
+
+flex-direction:column;
+
+gap:18px;
+}
+
+.vip{
+
+background:
+rgba(15,22,30,.96);
+
+border-radius:28px;
+
+padding:22px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+}
+
+.vip h2{
+
+font-size:24px;
+
+font-weight:900;
+
+color:#FFD700;
+}
+
+.vip p{
+
+margin-top:8px;
+
+font-size:15px;
+
+line-height:1.5;
+
+color:#d7d7d7;
+}
+
+.price{
+
+min-width:110px;
+
+height:74px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+border-radius:22px;
+
+background:
+linear-gradient(
+45deg,
+#FFD700,
+#ffb300
+);
+
+color:black;
+
+font-size:22px;
+
+font-weight:900;
+}
+
+/* SUPPORT BUTTON */
+
+.support-btn{
+
+position:fixed;
+
+right:20px;
+bottom:105px;
+
+width:85px;
+height:85px;
+
+border:none;
+
+border-radius:50%;
+
+background:#FFD700;
+
+box-shadow:
+0 0 30px rgba(255,215,0,.55);
+
+z-index:999;
+}
+
+.support-btn img{
+
+width:54px;
+}
+
+/* CHAT */
+
+.overlay{
+
+position:fixed;
+
+inset:0;
+
+background:
+rgba(0,0,0,.75);
+
+display:none;
+
+justify-content:center;
+
+align-items:center;
+
+padding:12px;
+
+z-index:9999;
+}
+
+.chat{
+
+width:100%;
+max-width:470px;
+
+height:92vh;
+
+background:#071018;
+
+border-radius:34px;
+
+overflow:hidden;
+
+display:flex;
+
+flex-direction:column;
+}
+
+/* TOP */
+
+.chat-top{
+
+height:95px;
+
+background:#162635;
+
+padding:0 18px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+}
+
+.top-left{
+
+display:flex;
+
+align-items:center;
+
+gap:14px;
+}
+
+.top-left img{
+
+width:58px;
+height:58px;
+
+border-radius:50%;
+}
+
+.support-name{
+
+font-size:26px;
+
+font-weight:900;
+
+color:#FFD700;
+}
+
+.status{
+
+margin-top:6px;
+
+font-size:15px;
+
+color:#d6d6d6;
+}
+
+.close{
+
+width:58px;
+height:58px;
+
+border:none;
+
+border-radius:50%;
+
+background:#FFD700;
+
+color:black;
+
+font-size:38px;
+
+font-weight:900;
+}
+
+/* MESSAGES */
+
+.messages{
+
+flex:1;
+
+overflow-y:auto;
+
+padding:18px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:14px;
+
+background:
+linear-gradient(
+rgba(0,0,0,.72),
+rgba(0,0,0,.82)
+),
+
+url("https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1400");
+
+background-size:cover;
+background-position:center;
+}
+
+.message{
+
+position:relative;
+
+max-width:78%;
+
+padding:14px 16px;
+
+border-radius:22px;
+
+font-size:17px;
+
+line-height:1.5;
+
+word-wrap:break-word;
+}
+
+.user{
+
+align-self:flex-end;
+
+background:#FFD700;
+
+color:black;
+
+font-weight:700;
+}
+
+.admin{
+
+align-self:flex-start;
+
+background:#243645;
+
+color:white;
+}
+
+.chat-image{
+
+width:100%;
+
+max-width:240px;
+
+border-radius:18px;
+
+display:block;
+}
+
+.delete{
+
+position:absolute;
+
+top:-10px;
+right:-10px;
+
+width:32px;
+height:32px;
+
+border:none;
+
+border-radius:50%;
+
+background:red;
+
+color:white;
+
+font-size:18px;
+
+font-weight:900;
+}
+
+/* INPUT */
+
+.bottom{
+
+min-height:92px;
+
+background:#162635;
+
+padding:14px;
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+}
+
+.add-btn{
+
+width:62px;
+height:62px;
+
+border:none;
+
+border-radius:20px;
+
+background:#10d7b1;
+
+color:white;
+
+font-size:42px;
+
+font-weight:900;
+
+flex-shrink:0;
+}
+
+#messageInput{
+
+flex:1;
+
+height:62px;
+
+border:none;
+
+outline:none;
+
+border-radius:22px;
+
+background:#2a3948;
+
+color:white;
+
+padding:0 18px;
+
+font-size:18px;
+
+min-width:0;
+}
+
+.send{
+
+width:72px;
+height:62px;
+
+border:none;
+
+border-radius:20px;
+
+background:#10d7b1;
+
+color:white;
+
+font-size:28px;
+
+font-weight:900;
+
+flex-shrink:0;
+}
+
+/* FOOTER */
+
+.footer{
+
+position:fixed;
+
+left:0;
+right:0;
+bottom:0;
+
+height:88px;
+
+background:#071018;
+
+border-top:
+1px solid rgba(255,255,255,.05);
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-around;
+
+z-index:999;
+}
+
+.menu{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+gap:6px;
+
+color:#cfcfcf;
+
+font-size:14px;
+}
+
+.menu.active{
+
+color:#FFD700;
+}
+
+.icon{
+
+font-size:28px;
+}
+
+/* MOBILE */
+
+@media(max-width:480px){
+
+.logo{
+
+font-size:46px;
+}
+
+.games{
+
+grid-template-columns:1fr;
+}
+
+.vip{
+
+padding:18px;
+}
+
+.vip h2{
+
+font-size:22px;
+}
+
+.price{
+
+min-width:95px;
+height:68px;
+
+font-size:18px;
+}
+
+.support-name{
+
+font-size:22px;
+}
+
+}
+
+</style>  </head>  <body>  <!-- HERO -->  <div class="hero">  <h1 class="logo">
+BATUMI VIP
+
+</h1>  <div class="sub">    
+Premium Slot • Casino • VIP Paketlər    
+</div>  <button class="start-btn">    
+Oyuna Başla    
+</button>  </div>  <!-- STATS -->  <div class="stats">  <div class="stat">  <h2>12K+</h2>  <p>Aktiv oyunçu</p>  </div>  <div class="stat">  <h2>24/7</h2>  <p>Dəstək xidməti</p>  </div>  <div class="stat">  <h2>₼500K</h2>  <p>Ödənilən qazanc</p>  </div>  </div>  <!-- GAMES -->  <div class="title">    
+Popular Oyunlar    
+</div>  <div class="games">  <div class="game">  <img src="    
+https://images.unsplash.com/photo-1596838132731-3301c3fd4317?q=80&w=1200    
+">  <div class="game-info">  <h3>Lucky Slot</h3>  <p>    
+Mega jackpot və bonus free spinlər    
+</p>  </div>  </div>  <div class="game">  <img src="    
+https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200    
+">  <div class="game-info">  <h3>Casino Live</h3>  <p>    
+Canlı diler və real kazino atmosferi    
+</p>  </div>  </div>  <div class="game">  <img src="    
+https://images.unsplash.com/photo-1606166325683-e6deb697d301?q=80&w=1200    
+">  <div class="game-info">  <h3>VIP Roulette</h3>  <p>    
+Premium oyunçular üçün xüsusi masa    
+</p>  </div>  </div>  <div class="game">  <img src="    
+https://images.unsplash.com/photo-1511882150382-421056c89033?q=80&w=1200    
+">  <div class="game-info">  <h3>Golden Poker</h3>  <p>    
+Böyük turnirlər və yüksək qazanc    
+</p>  </div>  </div>  </div>  <!-- VIP -->  <div class="title">    
+VIP Paketlər    
+</div>  <div class="vip-list">  <div class="vip">  <div>  <h2>BRONZE VIP</h2>  <p>    
+Günlük bonus və cashback    
+</p>  </div>  <div class="price">    
+50 AZN    
+</div>  </div>  <div class="vip">  <div>  <h2>SILVER VIP</h2>  <p>    
+Premium slot girişləri    
+</p>  </div>  <div class="price">    
+100 AZN    
+</div>  </div>  <div class="vip">  <div>  <h2>GOLD VIP</h2>  <p>    
+Şəxsi menecer və full VIP status    
+</p>  </div>  <div class="price">    
+250 AZN    
+</div>  </div>  </div>  <!-- SUPPORT -->  <button  
+class="support-btn"  
+id="openChat"  > 
+
+<img src="    
+https://cdn-icons-png.flaticon.com/512/4712/4712109.png    
+">
+
+</button>  <!-- CHAT -->  <div
+class="overlay"
+id="overlay"
+
+>  <div class="chat">  <!-- TOP -->  <div class="chat-top">  <div class="top-left">  <img src="    
+
+https://cdn-icons-png.flaticon.com/512/4712/4712109.png
+">
+
+<div>  <div class="support-name">    
+Batumi Support    
+</div>  <div class="status">    
+Admin aktivdir    
+</div>  </div>  </div>  <button  
+class="close"  
+id="closeChat"  > 
+
+×
+</button>
+
+</div>  <!-- MESSAGES -->  <div    
+class="messages"    
+id="messages"    
+></div>  <!-- INPUT -->  <div class="bottom">  <input  
+type="file"  
+id="imageInput"  
+accept="image/*"  
+hidden  > 
+
+<button
+class="add-btn"
+id="imageBtn"
+
+> 
+
+</button>  <input
+type="text"
+id="messageInput"
+placeholder="Mesaj yaz..."
+
+> 
+
+<button
+class="send"
+id="sendBtn"
+
+> 
+
+➤
+</button>
+
+</div>  </div>  </div>  <!-- FOOTER -->  <div class="footer">  <div class="menu">  <div class="icon">    
+🏠    
+</div>  <div>    
+Ana Səhifə    
+</div>  </div>  <div class="menu">  <div class="icon">    
+💎    
+</div>  <div>    
+VIP Paketlər    
+</div>  </div>  <div class="menu">  <div class="icon">    
+🎁    
+</div>  <div>    
+Bonuslar    
+</div>  </div>  <div class="menu active">  <div class="icon">    
+🎧    
+</div>  <div>    
+Dəstək    
+</div>  </div>  </div>  <!-- FIREBASE -->  <script type="module">    import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+
+getDatabase,
+ref,
+push,
+onValue,
+remove
+
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+/* FIREBASE */
+
+const firebaseConfig = {
+
+apiKey:
+"AIzaSyBmtDa9fkBjd-J2tToJF_8CcPVZs3pJZsM",
+
+authDomain:
+"batumi-kazino-5a748.firebaseapp.com",
+
+databaseURL:
+"https://batumi-kazino-5a748-default-rtdb.firebaseio.com",
+
+projectId:
+"batumi-kazino-5a748",
+
+storageBucket:
+"batumi-kazino-5a748.appspot.com",
+
+messagingSenderId:
+"501153230995",
+
+appId:
+"1:501153230995:web:8dac82ebf1904fc1881d66"
+
+};
+
+const app =
+initializeApp(firebaseConfig);
+
+const db =
+getDatabase(app);
+
+/* USER */
+
+const username =
+localStorage.getItem("username")
+|| "User";
+
+const phone =
+localStorage.getItem("phone")
+|| "000";
+
+/* ELEMENTS */
+
+const overlay =
+document.getElementById("overlay");
+
+const openChat =
+document.getElementById("openChat");
+
+const closeChat =
+document.getElementById("closeChat");
+
+const sendBtn =
+document.getElementById("sendBtn");
+
+const messageInput =
+document.getElementById("messageInput");
+
+const messages =
+document.getElementById("messages");
+
+const imageBtn =
+document.getElementById("imageBtn");
+
+const imageInput =
+document.getElementById("imageInput");
+
+/* OPEN */
+
+openChat.onclick = ()=>{
+
+overlay.style.display = "flex";
+
+};
+
+/* CLOSE */
+
+closeChat.onclick = ()=>{
+
+overlay.style.display = "none";
+
+};
+
+/* SEND MESSAGE */
+
+async function sendMessage(){
+
+const text =
+messageInput.value.trim();
+
+if(text === ""){
+return;
+}
+
+await push(
+ref(db,"messages"),
+{
+
+username,
+phone,
+
+sender:"user",
+
+text,
+
+time:Date.now()
+
+}
+);
+
+messageInput.value = "";
+
+}
+
+sendBtn.onclick =
+sendMessage;
+
+/* ENTER */
+
+messageInput.addEventListener(
+"keypress",
+function(e){
+
+if(e.key === "Enter"){
+
+sendMessage();
+
+}
+
+}
+);
+
+/* IMAGE */
+
+imageBtn.onclick = ()=>{
+
+imageInput.click();
+
+};
+
+imageInput.addEventListener(
+"change",
+function(){
+
+const file =
+imageInput.files[0];
+
+if(!file){
+return;
+}
+
+const reader =
+new FileReader();
+
+reader.onload =
+async function(){
+
+await push(
+ref(db,"messages"),
+{
+
+username,
+phone,
+
+sender:"user",
+
+image:reader.result,
+
+time:Date.now()
+
+}
+);
+
+};
+
+reader.readAsDataURL(file);
+
+}
+);
+
+/* DELETE */
+
+window.deleteMessage =
+function(id){
+
+remove(
+ref(db,"messages/" + id)
+);
+
+};
+
+/* REALTIME */
+
+onValue(
+ref(db,"messages"),
+(snapshot)=>{
+
+messages.innerHTML = "";
+
+const data =
+snapshot.val();
+
+if(!data){
+return;
+}
+
+const all =
+Object.entries(data)
+.map(([id,msg])=>({
+
+id,
+...msg
+
+}));
+
+const myMessages =
+all
+.filter(
+m=>m.phone === phone
+)
+.sort((a,b)=>a.time-b.time);
+
+myMessages.forEach((msg)=>{
+
+messages.innerHTML += `
+
+<div class="    
+message    
+${msg.sender}    
+">    <button
+class="delete"
+onclick="
+deleteMessage('${msg.id}')
+"
+
+> 
+
+×
+</button>
+
+${
+msg.image
+?
+
+`
+<img
+src="${msg.image}"
+class="chat-image"
+
+> 
+
+`
+
+:
+
+msg.text
+}
+
+</div>    `;
+
+});
+
+messages.scrollTop =
+messages.scrollHeight;
+
+}
+);
+
+</script>  </body>
+
+</html>  
