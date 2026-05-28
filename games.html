@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+/>
+
+<title>
+BATUMI KAZINO - OYUNLAR
+</title>
+
+<style>
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+
+}
+
+body{
+
+background:
+linear-gradient(
+180deg,
+#02101d,
+#000000
+);
+
+color:white;
+
+padding-bottom:110px;
+
+}
+
+/* HEADER */
+
+.header{
+
+padding:18px;
+
+background:
+linear-gradient(
+90deg,
+#0047ab,
+#00152d
+);
+
+border-bottom:
+1px solid rgba(255,255,255,.08);
+
+}
+
+.top-bar{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+.logo{
+
+font-size:30px;
+
+font-weight:900;
+
+color:#ff2d2d;
+
+line-height:1;
+
+}
+
+/* LANGUAGE */
+
+.lang-select{
+
+width:170px;
+
+height:46px;
+
+border:none;
+
+outline:none;
+
+border-radius:14px;
+
+padding:0 12px;
+
+font-size:16px;
+
+background:
+rgba(255,255,255,.12);
+
+color:white;
+
+}
+
+/* WHATSAPP */
+
+.whatsapp-box{
+
+display:flex;
+
+justify-content:center;
+
+margin:24px 0;
+
+}
+
+.whatsapp-btn{
+
+width:82px;
+
+height:82px;
+
+border-radius:50%;
+
+background:#25D366;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:44px;
+
+text-decoration:none;
+
+box-shadow:
+0 0 30px rgba(37,211,102,.7);
+
+}
+
+/* SLIDER */
+
+.slider{
+
+width:92%;
+
+height:170px;
+
+margin:auto;
+
+border-radius:28px;
+
+overflow:hidden;
+
+position:relative;
+
+box-shadow:
+0 0 25px rgba(0,0,0,.6);
+
+}
+
+.slide{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+
+align-items:flex-end;
+
+padding:20px;
+
+font-size:34px;
+
+font-weight:900;
+
+transition:.6s;
+
+}
+
+.slide::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+linear-gradient(
+180deg,
+transparent,
+rgba(0,0,0,.8)
+);
+
+}
+
+.slide span{
+
+position:relative;
+
+z-index:2;
+
+}
+
+.slide1{
+
+background-image:
+url("https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200");
+
+}
+
+.slide2{
+
+background-image:
+url("https://images.unsplash.com/photo-1596838132731-3301c3fd4317?q=80&w=1200");
+
+}
+
+/* GAMES */
+
+.games{
+
+width:92%;
+
+margin:26px auto;
+
+display:grid;
+
+grid-template-columns:
+repeat(2,1fr);
+
+gap:16px;
+
+}
+
+.game{
+
+height:220px;
+
+border-radius:28px;
+
+overflow:hidden;
+
+position:relative;
+
+background:#07111d;
+
+border:
+1px solid rgba(255,255,255,.08);
+
+box-shadow:
+0 0 20px rgba(0,0,0,.5);
+
+cursor:pointer;
+
+}
+
+.game img{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+display:block;
+
+}
+
+/* NAVBAR */
+
+.bottom-nav{
+
+position:fixed;
+
+bottom:0;
+
+left:0;
+
+width:100%;
+
+height:88px;
+
+background:
+rgba(0,0,0,.96);
+
+display:flex;
+
+justify-content:space-around;
+
+align-items:center;
+
+border-top:
+2px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(10px);
+
+}
+
+.nav-item{
+
+width:25%;
+
+height:100%;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+gap:5px;
+
+text-decoration:none;
+
+color:#d0d0d0;
+
+font-size:15px;
+
+transition:.3s;
+
+}
+
+.nav-item.active{
+
+background:
+linear-gradient(
+180deg,
+rgba(255,208,0,.15),
+rgba(255,208,0,.05)
+);
+
+color:#FFD000;
+
+border-top:
+4px solid #FFD000;
+
+}
+
+.nav-icon{
+
+font-size:28px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<div class="header">
+
+<div class="top-bar">
+
+<div class="logo">
+BATUMI<br>KAZINO
+</div>
+
+<select
+class="lang-select"
+id="language"
+onchange="changeLanguage()"
+>
+
+<option value="az">
+🇦🇿 Azərbaycan
+</option>
+
+<option value="en">
+🇬🇧 English
+</option>
+
+<option value="ru">
+🇷🇺 Русский
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+<!-- WHATSAPP -->
+
+<div class="whatsapp-box">
+
+<a
+href="https://wa.me/18258148484"
+class="whatsapp-btn"
+target="_blank"
+>
+📞
+</a>
+
+</div>
+
+<!-- SLIDER -->
+
+<div class="slider">
+
+<div
+class="slide slide1"
+id="slide1"
+>
+
+<span>
+PREMIUM SLOTLAR
+</span>
+
+</div>
+
+<div
+class="slide slide2"
+id="slide2"
+style="opacity:0;"
+>
+
+<span>
+MEGA BONUSLAR
+</span>
+
+</div>
+
+</div>
+
+<!-- GAMES -->
+
+<div class="games">
+
+<div class="game" onclick="openGame(1002)">
+<img src="https://raw.githubusercontent.com/slotaz976-sys/-mages/main/sevens-on-fire-7.jpg">
+</div>
+
+<div class="game" onclick="openGame(1013)">
+<img src="https://raw.githubusercontent.com/slotaz976-sys/-mages/main/rich-fruits.jpg">
+</div>
+
+<div class="game" onclick="openGame(1069)">
+<img src="https://raw.githubusercontent.com/slotaz976-sys/-mages/main/hot-sevens-7.jpg">
+</div>
+
+<div class="game" onclick="openGame(1003)">
+<img src="https://raw.githubusercontent.com/slotaz976-sys/-mages/main/fire-rage-plus.jpg">
+</div>
+
+<div class="game" onclick="openGame(1056)">
+<img src="https://raw.githubusercontent.com/slotaz976-sys/-mages/main/extra-super-7.jpg">
+</div>
+
+<div class="game" onclick="openGame(1005)">
+<img src="https://raw.githubusercontent.com/slotaz976-sys/-mages/main/sizzling-hot-deluxe.jpg">
+</div>
+
+<div class="game" onclick="openGame(1023)">
+<img src="https://raw.githubusercontent.com/slotaz976-sys/-mages/main/black-jack.jpg">
+</div>
+
+<div class="game" onclick="openGame(1008)">
+<img src="https://raw.githubusercontent.com/slotaz976-sys/-mages/main/simple-diamon.jpg">
+</div>
+
+<div class="game" onclick="openGame(1030)">
+<img src="https://raw.githubusercontent.com/slotaz976-sys/-mages/main/poker.jpg">
+</div>
+
+<div class="game" onclick="openGame(1029)">
+<img src="https://raw.githubusercontent.com/slotaz976-sys/-mages/main/scatter-golden-777.jpg">
+</div>
+
+</div>
+
+<!-- NAVBAR -->
+
+<div class="bottom-nav">
+
+<a
+href="index.html"
+class="nav-item"
+>
+
+<div class="nav-icon">
+🏠
+</div>
+
+<div id="homeText">
+Ana Səhifə
+</div>
+
+</a>
+
+<a
+href="games.html"
+class="nav-item active"
+>
+
+<div class="nav-icon">
+🎰
+</div>
+
+<div id="gamesText">
+Oyunlar
+</div>
+
+</a>
+
+<a
+href="bonus.html"
+class="nav-item"
+>
+
+<div class="nav-icon">
+🎁
+</div>
+
+<div id="bonusText">
+Bonus
+</div>
+
+</a>
+
+<a
+href="support.html"
+class="nav-item"
+>
+
+<div class="nav-icon">
+🎧
+</div>
+
+<div id="supportText">
+Dəstək
+</div>
+
+</a>
+
+</div>
+
+<script>
+
+/* GAME OPEN */
+
+function openGame(id){
+
+window.location.href =
+"https://fastloto365.com/?gameid=" + id;
+
+}
+
+/* LANGUAGE */
+
+function changeLanguage(){
+
+const lang =
+document.getElementById(
+"language"
+).value;
+
+if(lang==="az"){
+
+homeText.innerText =
+"Ana Səhifə";
+
+gamesText.innerText =
+"Oyunlar";
+
+bonusText.innerText =
+"Bonus";
+
+supportText.innerText =
+"Dəstək";
+
+slide1.innerHTML =
+"<span>PREMIUM SLOTLAR</span>";
+
+slide2.innerHTML =
+"<span>MEGA BONUSLAR</span>";
+
+}
+
+if(lang==="en"){
+
+homeText.innerText =
+"Home";
+
+gamesText.innerText =
+"Games";
+
+bonusText.innerText =
+"Bonus";
+
+supportText.innerText =
+"Support";
+
+slide1.innerHTML =
+"<span>PREMIUM SLOTS</span>";
+
+slide2.innerHTML =
+"<span>MEGA BONUSES</span>";
+
+}
+
+if(lang==="ru"){
+
+homeText.innerText =
+"Главная";
+
+gamesText.innerText =
+"Игры";
+
+bonusText.innerText =
+"Бонус";
+
+supportText.innerText =
+"Поддержка";
+
+slide1.innerHTML =
+"<span>ПРЕМИУМ СЛОТЫ</span>";
+
+slide2.innerHTML =
+"<span>МЕГА БОНУСЫ</span>";
+
+}
+
+}
+
+/* SLIDER */
+
+let current = 0;
+
+const slides =
+document.querySelectorAll(".slide");
+
+setInterval(()=>{
+
+slides[current].style.opacity = 0;
+
+current++;
+
+if(current >= slides.length){
+
+current = 0;
+
+}
+
+slides[current].style.opacity = 1;
+
+},3000);
+
+</script>
+
+</body>
+</html>

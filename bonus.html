@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+/>
+
+<title>
+BATUMI VIP BONUS
+</title>
+
+<style>
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+-webkit-tap-highlight-color:transparent;
+
+}
+
+:root{
+
+--gold:#FFD700;
+--gold2:#ffb300;
+--green:#00ff88;
+--dark:#05070b;
+--dark2:#0b1018;
+--dark3:#131b26;
+--text:#f4f4f4;
+--gray:#bdbdbd;
+
+}
+
+body{
+
+background:
+radial-gradient(
+circle at top,
+rgba(255,215,0,.08),
+transparent 35%
+),
+radial-gradient(
+circle at bottom right,
+rgba(0,255,136,.05),
+transparent 30%
+),
+linear-gradient(
+180deg,
+#02050a,
+#000000
+);
+
+font-family:Arial,sans-serif;
+
+color:white;
+
+overflow-x:hidden;
+
+padding-bottom:120px;
+
+}
+
+/* HEADER */
+
+.header{
+
+padding:35px 20px;
+
+background:
+linear-gradient(
+135deg,
+#002d62,
+#000814
+);
+
+border-bottom:
+1px solid rgba(255,255,255,.08);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.header::before{
+
+content:"";
+
+position:absolute;
+
+top:-80px;
+right:-80px;
+
+width:220px;
+height:220px;
+
+background:
+radial-gradient(
+circle,
+rgba(255,215,0,.16),
+transparent
+);
+
+}
+
+.top{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+gap:15px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.logo{
+
+font-size:42px;
+
+font-weight:900;
+
+line-height:1;
+
+color:#ff2d2d;
+
+text-shadow:
+0 0 25px rgba(255,45,45,.55);
+
+}
+
+.lang{
+
+width:170px;
+
+height:48px;
+
+border:none;
+
+outline:none;
+
+border-radius:16px;
+
+padding:0 12px;
+
+font-size:16px;
+
+background:
+rgba(255,255,255,.1);
+
+color:white;
+
+backdrop-filter:blur(10px);
+
+}
+
+.subtitle{
+
+margin-top:20px;
+
+font-size:17px;
+
+line-height:1.7;
+
+color:#d9d9d9;
+
+position:relative;
+
+z-index:2;
+
+}
+
+/* HERO */
+
+.hero{
+
+width:92%;
+
+height:240px;
+
+margin:28px auto;
+
+border-radius:34px;
+
+overflow:hidden;
+
+position:relative;
+
+background-image:
+url("https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200");
+
+background-size:cover;
+
+background-position:center;
+
+box-shadow:
+0 0 35px rgba(0,0,0,.65);
+
+}
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+linear-gradient(
+180deg,
+transparent,
+rgba(0,0,0,.92)
+);
+
+}
+
+.hero-content{
+
+position:absolute;
+
+left:25px;
+bottom:25px;
+
+z-index:2;
+
+}
+
+.hero-title{
+
+font-size:42px;
+
+font-weight:900;
+
+margin-bottom:10px;
+
+color:white;
+
+}
+
+.hero-text{
+
+font-size:18px;
+
+line-height:1.6;
+
+color:#e3e3e3;
+
+}
+
+/* SECTION TITLE */
+
+.section-title{
+
+width:92%;
+
+margin:5px auto 22px auto;
+
+font-size:36px;
+
+font-weight:900;
+
+color:#FFD700;
+
+text-shadow:
+0 0 15px rgba(255,215,0,.35);
+
+}
+
+/* PACKAGE GRID */
+
+.packages{
+
+width:92%;
+
+margin:auto;
+
+display:flex;
+
+flex-direction:column;
+
+gap:22px;
+
+}
+
+/* CARD */
+
+.card{
+
+position:relative;
+
+padding:28px;
+
+border-radius:34px;
+
+overflow:hidden;
+
+border:
+1px solid rgba(255,255,255,.08);
+
+background:
+linear-gradient(
+180deg,
+rgba(13,20,32,.98),
+rgba(0,0,0,.98)
+);
+
+box-shadow:
+0 0 28px rgba(0,0,0,.55);
+
+}
+
+/* LEVEL COLORS */
+
+.level-1{
+
+border-color:
+rgba(255,94,0,.22);
+
+}
+
+.level-2{
+
+border-color:
+rgba(190,190,190,.25);
+
+}
+
+.level-3{
+
+border-color:
+rgba(255,215,0,.35);
+
+box-shadow:
+0 0 35px rgba(255,215,0,.12);
+
+}
+
+.level-4{
+
+border-color:
+rgba(0,191,255,.35);
+
+box-shadow:
+0 0 35px rgba(0,191,255,.10);
+
+}
+
+.level-5{
+
+border-color:
+rgba(255,0,212,.4);
+
+box-shadow:
+0 0 40px rgba(255,0,212,.15);
+
+}
+
+/* TOP BADGE */
+
+.top-badge{
+
+position:absolute;
+
+top:18px;
+right:18px;
+
+padding:10px 16px;
+
+border-radius:18px;
+
+font-size:12px;
+
+font-weight:900;
+
+letter-spacing:1px;
+
+background:
+rgba(255,255,255,.1);
+
+backdrop-filter:blur(10px);
+
+}
+
+/* PRICE */
+
+.price{
+
+font-size:58px;
+
+font-weight:900;
+
+line-height:1;
+
+margin-bottom:14px;
+
+}
+
+/* COLOR PRICE */
+
+.level-1 .price{
+
+color:#ff7b00;
+
+}
+
+.level-2 .price{
+
+color:#dcdcdc;
+
+}
+
+.level-3 .price{
+
+color:#FFD700;
+
+text-shadow:
+0 0 15px rgba(255,215,0,.4);
+
+}
+
+.level-4 .price{
+
+color:#00bfff;
+
+text-shadow:
+0 0 15px rgba(0,191,255,.35);
+
+}
+
+.level-5 .price{
+
+background:
+linear-gradient(
+90deg,
+#ff00cc,
+#9d4dff
+);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+}
+
+/* PACKAGE NAME */
+
+.package-name{
+
+font-size:30px;
+
+font-weight:900;
+
+margin-bottom:14px;
+
+}
+
+/* BONUS */
+
+.bonus{
+
+display:inline-block;
+
+padding:10px 18px;
+
+border-radius:999px;
+
+font-size:15px;
+
+font-weight:900;
+
+margin-bottom:22px;
+
+}
+
+.level-1 .bonus{
+
+background:
+rgba(255,123,0,.14);
+
+color:#ff9a3d;
+
+}
+
+.level-2 .bonus{
+
+background:
+rgba(220,220,220,.12);
+
+color:#dcdcdc;
+
+}
+
+.level-3 .bonus{
+
+background:
+rgba(255,215,0,.14);
+
+color:#FFD700;
+
+}
+
+.level-4 .bonus{
+
+background:
+rgba(0,191,255,.14);
+
+color:#00bfff;
+
+}
+
+.level-5 .bonus{
+
+background:
+rgba(255,0,212,.14);
+
+color:#ff6ce6;
+
+}
+
+/* FEATURES */
+
+.features{
+
+display:flex;
+
+flex-direction:column;
+
+gap:12px;
+
+margin-bottom:25px;
+
+}
+
+.feature{
+
+font-size:17px;
+
+line-height:1.6;
+
+color:#ebebeb;
+
+}
+
+/* STATS */
+
+.stats{
+
+display:grid;
+
+grid-template-columns:
+repeat(3,1fr);
+
+gap:12px;
+
+margin-bottom:26px;
+
+}
+
+.stat{
+
+padding:14px 10px;
+
+border-radius:18px;
+
+text-align:center;
+
+background:
+rgba(255,255,255,.04);
+
+border:
+1px solid rgba(255,255,255,.05);
+
+}
+
+.stat-number{
+
+font-size:20px;
+
+font-weight:900;
+
+margin-bottom:5px;
+
+color:#FFD700;
+
+}
+
+.stat-label{
+
+font-size:12px;
+
+color:#bcbcbc;
+
+}
+
+/* BUTTON */
+
+.buy-btn{
+
+width:100%;
+
+height:62px;
+
+border:none;
+
+border-radius:22px;
+
+font-size:21px;
+
+font-weight:900;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.level-1 .buy-btn{
+
+background:
+linear-gradient(
+90deg,
+#ff6a00,
+#ff9500
+);
+
+color:white;
+
+box-shadow:
+0 0 22px rgba(255,106,0,.45);
+
+}
+
+.level-2 .buy-btn{
+
+background:
+linear-gradient(
+90deg,
+#d9d9d9,
+#ffffff
+);
+
+color:black;
+
+}
+
+.level-3 .buy-btn{
+
+background:
+linear-gradient(
+90deg,
+#FFD700,
+#ffb300
+);
+
+color:black;
+
+box-shadow:
+0 0 25px rgba(255,215,0,.45);
+
+}
+
+.level-4 .buy-btn{
+
+background:
+linear-gradient(
+90deg,
+#00bfff,
+#007bff
+);
+
+color:white;
+
+box-shadow:
+0 0 25px rgba(0,191,255,.35);
+
+}
+
+.level-5 .buy-btn{
+
+background:
+linear-gradient(
+90deg,
+#ff00cc,
+#8a2cff
+);
+
+color:white;
+
+box-shadow:
+0 0 30px rgba(255,0,212,.45);
+
+}
+
+/* FOOTER */
+
+.bottom-nav{
+
+position:fixed;
+
+bottom:0;
+
+left:0;
+
+width:100%;
+
+height:92px;
+
+background:
+rgba(0,0,0,.96);
+
+display:flex;
+
+justify-content:space-around;
+
+align-items:center;
+
+border-top:
+1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(10px);
+
+z-index:999;
+
+}
+
+.nav-item{
+
+width:25%;
+
+height:100%;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+gap:5px;
+
+font-size:15px;
+
+text-decoration:none;
+
+color:#d0d0d0;
+
+}
+
+.nav-item.active{
+
+background:
+linear-gradient(
+180deg,
+rgba(255,208,0,.16),
+rgba(255,208,0,.04)
+);
+
+border-top:
+4px solid #FFD700;
+
+color:#FFD700;
+
+}
+
+.nav-icon{
+
+font-size:29px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<div class="header">
+
+<div class="top">
+
+<div class="logo">
+BATUMI<br>VIP
+</div>
+
+<select class="lang">
+
+<option>
+🇦🇿 Azərbaycan
+</option>
+
+<option>
+🇬🇧 English
+</option>
+
+<option>
+🇷🇺 Русский
+</option>
+
+</select>
+
+</div>
+
+<div class="subtitle">
+
+Premium bonus paketləri,
+VIP kazino sistemləri və eksklüziv kampaniyalar.
+
+</div>
+
+</div>
+
+<!-- HERO -->
+
+<div class="hero">
+
+<div class="hero-content">
+
+<div class="hero-title">
+MEGA BONUSLAR
+</div>
+
+<div class="hero-text">
+
+VIP paket seç,
+bonus balansını yüksəlt və premium oyunları aktiv et.
+
+</div>
+
+</div>
+
+</div>
+
+<!-- TITLE -->
+
+<div class="section-title">
+VIP BONUS PAKETLƏRİ
+</div>
+
+<!-- PACKAGES -->
+
+<div class="packages">
+
+<!-- 20 AZN -->
+
+<div class="card level-1">
+
+<div class="top-badge">
+START
+</div>
+
+<div class="price">
+20 AZN
+</div>
+
+<div class="package-name">
+Başlanğıc Paket
+</div>
+
+<div class="bonus">
++50% BONUS
+</div>
+
+<div class="features">
+
+<div class="feature">
+✔️ +10 AZN əlavə bonus
+</div>
+
+<div class="feature">
+✔️ Ümumi balans: 30 AZN
+</div>
+
+<div class="feature">
+✔️ Çıxarış limiti: 60 AZN
+</div>
+
+<div class="feature">
+✔️ Avtomatik aktivləşmə
+</div>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+
+<div class="stat-number">
+10
+</div>
+
+<div class="stat-label">
+BONUS
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-number">
+30
+</div>
+
+<div class="stat-label">
+BALANS
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-number">
+60
+</div>
+
+<div class="stat-label">
+ÇIXARIŞ
+</div>
+
+</div>
+
+</div>
+
+<button class="buy-btn">
+PAKETİ AKTİVLƏŞDİR
+</button>
+
+</div>
+
+<!-- 50 AZN -->
+
+<div class="card level-2">
+
+<div class="top-badge">
+SILVER
+</div>
+
+<div class="price">
+50 AZN
+</div>
+
+<div class="package-name">
+Gümüş Paket
+</div>
+
+<div class="bonus">
++70% BONUS
+</div>
+
+<div class="features">
+
+<div class="feature">
+✔️ +35 AZN əlavə bonus
+</div>
+
+<div class="feature">
+✔️ Ümumi balans: 85 AZN
+</div>
+
+<div class="feature">
+✔️ Çıxarış limiti: 170 AZN
+</div>
+
+<div class="feature">
+✔️ 10 AZN PayKod hədiyyə
+</div>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+
+<div class="stat-number">
+35
+</div>
+
+<div class="stat-label">
+BONUS
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-number">
+85
+</div>
+
+<div class="stat-label">
+BALANS
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-number">
+170
+</div>
+
+<div class="stat-label">
+ÇIXARIŞ
+</div>
+
+</div>
+
+</div>
+
+<button class="buy-btn">
+VIP BONUSU AÇ
+</button>
+
+</div>
+
+<!-- 100 AZN -->
+
+<div class="card level-3">
+
+<div class="top-badge">
+POPULAR
+</div>
+
+<div class="price">
+100 AZN
+</div>
+
+<div class="package-name">
+Qızıl Paket
+</div>
+
+<div class="bonus">
++70% PREMIUM BONUS
+</div>
+
+<div class="features">
+
+<div class="feature">
+✔️ +70 AZN əlavə bonus
+</div>
+
+<div class="feature">
+✔️ Ümumi balans: 170 AZN
+</div>
+
+<div class="feature">
+✔️ Çıxarış limiti: 340 AZN
+</div>
+
+<div class="feature">
+✔️ 20 AZN PayKod bonusu
+</div>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+
+<div class="stat-number">
+70
+</div>
+
+<div class="stat-label">
+BONUS
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-number">
+170
+</div>
+
+<div class="stat-label">
+BALANS
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-number">
+340
+</div>
+
+<div class="stat-label">
+ÇIXARIŞ
+</div>
+
+</div>
+
+</div>
+
+<button class="buy-btn">
+PREMIUM BONUS AL
+</button>
+
+</div>
+
+<!-- 250 AZN -->
+
+<div class="card level-4">
+
+<div class="top-badge">
+ELITE
+</div>
+
+<div class="price">
+250 AZN
+</div>
+
+<div class="package-name">
+Elite VIP Paket
+</div>
+
+<div class="bonus">
++70% ELITE BONUS
+</div>
+
+<div class="features">
+
+<div class="feature">
+✔️ +175 AZN əlavə bonus
+</div>
+
+<div class="feature">
+✔️ Ümumi balans: 425 AZN
+</div>
+
+<div class="feature">
+✔️ Çıxarış limiti: 850 AZN
+</div>
+
+<div class="feature">
+✔️ Xüsusi VIP dəstək
+</div>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+
+<div class="stat-number">
+175
+</div>
+
+<div class="stat-label">
+BONUS
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-number">
+425
+</div>
+
+<div class="stat-label">
+BALANS
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-number">
+850
+</div>
+
+<div class="stat-label">
+ÇIXARIŞ
+</div>
+
+</div>
+
+</div>
+
+<button class="buy-btn">
+ELITE GİRİŞİ AÇ
+</button>
+
+</div>
+
+<!-- 500 AZN -->
+
+<div class="card level-5">
+
+<div class="top-badge">
+ULTRA VIP
+</div>
+
+<div class="price">
+500 AZN
+</div>
+
+<div class="package-name">
+Legendary VIP
+</div>
+
+<div class="bonus">
++100% ULTRA BONUS
+</div>
+
+<div class="features">
+
+<div class="feature">
+✔️ +500 AZN əlavə bonus
+</div>
+
+<div class="feature">
+✔️ Ümumi balans: 1000 AZN
+</div>
+
+<div class="feature">
+✔️ Çıxarış limiti: 2000 AZN
+</div>
+
+<div class="feature">
+✔️ Gizli premium slotlar
+</div>
+
+<div class="feature">
+✔️ Şəxsi VIP menecer
+</div>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+
+<div class="stat-number">
+500
+</div>
+
+<div class="stat-label">
+BONUS
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-number">
+1000
+</div>
+
+<div class="stat-label">
+BALANS
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-number">
+2000
+</div>
+
+<div class="stat-label">
+ÇIXARIŞ
+</div>
+
+</div>
+
+</div>
+
+<button class="buy-btn">
+ULTRA VIP AKTİV ET
+</button>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="bottom-nav">
+
+<a
+href="index.html"
+class="nav-item"
+>
+
+<div class="nav-icon">
+🏠
+</div>
+
+<div>
+Ana Səhifə
+</div>
+
+</a>
+
+<a
+href="games.html"
+class="nav-item"
+>
+
+<div class="nav-icon">
+🎰
+</div>
+
+<div>
+Oyunlar
+</div>
+
+</a>
+
+<a
+href="bonus.html"
+class="nav-item active"
+>
+
+<div class="nav-icon">
+🎁
+</div>
+
+<div>
+Bonus
+</div>
+
+</a>
+
+<a
+href="support.html"
+class="nav-item"
+>
+
+<div class="nav-icon">
+🎧
+</div>
+
+<div>
+Dəstək
+</div>
+
+</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>BATUMI VIP SUPPORT</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;-webkit-tap-highlight-color:transparent;}
+body{background:#040814;height:100vh;overflow:hidden;color:white;}
+.float-btn{position:fixed;right:18px;bottom:100px;width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#10182a,#1a2540);display:flex;align-items:center;justify-content:center;font-size:34px;cursor:pointer;z-index:99999;box-shadow:0 0 30px rgba(0,102,255,.4);user-select:none;}
+.float-badge{position:absolute;top:-4px;right:-4px;background:#ff3b30;color:#fff;font-size:11px;font-weight:900;min-width:20px;height:20px;border-radius:10px;display:none;align-items:center;justify-content:center;padding:0 5px;pointer-events:none;}
+.float-badge.show{display:flex;}
+.chat-box{position:fixed;top:0;left:0;width:100%;height:calc(100vh - 82px);background:#040814;display:none;flex-direction:column;z-index:999999;}
+.chat-box.open{display:flex;}
+.chat-header{height:88px;padding:0 16px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(90deg,#001540,#0038a8,#001540);}
+.header-left{display:flex;align-items:center;gap:14px;}
+.h-avatar{width:58px;height:58px;border-radius:18px;background:#ffd000;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:900;color:#000;flex-shrink:0;}
+.h-info h2{font-size:22px;font-weight:900;}
+.h-info p{margin-top:4px;font-size:13px;color:#d7d7d7;}
+.close-btn{width:48px;height:48px;border:none;border-radius:16px;background:rgba(255,255,255,.08);color:#fff;font-size:28px;cursor:pointer;flex-shrink:0;line-height:1;}
+.chat-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;}
+.chat-messages::-webkit-scrollbar{width:4px;}
+.chat-messages::-webkit-scrollbar-thumb{background:#ffffff33;border-radius:20px;}
+.msg{max-width:78%;padding:12px 14px;border-radius:22px;word-break:break-word;line-height:1.4;}
+.msg.customer{align-self:flex-end;background:linear-gradient(135deg,#ffd000,#ffb300);color:#000;border-bottom-right-radius:8px;}
+.msg.admin{align-self:flex-start;background:linear-gradient(135deg,#182235,#101725);color:#fff;border-bottom-left-radius:8px;}
+.msg-img{width:100%;max-width:240px;border-radius:18px;display:block;}
+.msg-time{margin-top:6px;font-size:11px;opacity:.7;text-align:right;}
+.typing-bar{padding:4px 18px 8px;font-size:13px;color:#00ff88;flex-shrink:0;display:none;}
+.chat-input{padding:14px;display:flex;align-items:center;gap:10px;background:#0b1220;flex-shrink:0;}
+.msg-input{flex:1;height:56px;border:none;outline:none;border-radius:18px;background:#1e293b;padding:0 16px;font-size:16px;color:#fff;}
+.icon-btn{width:56px;height:56px;border:none;border-radius:18px;font-size:24px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;}
+.img-btn{background:#1e293b;color:#7bc9ff;}
+.send-btn{background:linear-gradient(135deg,#ffd000,#ffb300);color:#000;font-weight:900;}
+.footer{position:fixed;left:0;bottom:0;width:100%;height:82px;background:rgba(0,0,0,.96);display:flex;justify-content:space-around;align-items:center;border-top:1px solid rgba(255,255,255,.06);z-index:999999;}
+.footer-item{flex:1;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:12px;text-decoration:none;color:#cfcfcf;}
+.footer-item.active{background:linear-gradient(180deg,rgba(255,208,0,.15),rgba(255,208,0,.03));color:#ffd000;border-top:4px solid #ffd000;}
+.footer-icon{font-size:26px;}
+</style>
+</head>
+<body>
+
+<div class="float-btn" id="floatBtn">
+  💬
+  <div class="float-badge" id="badge"></div>
+</div>
+
+<div class="chat-box" id="chatBox">
+  <div class="chat-header">
+    <div class="header-left">
+      <div class="h-avatar">A</div>
+      <div class="h-info">
+        <h2>Aylin</h2>
+        <p>Premium Support</p>
+      </div>
+    </div>
+    <button class="close-btn" id="closeBtn">×</button>
+  </div>
+  <div class="chat-messages" id="messages"></div>
+  <div class="typing-bar" id="typingBar">Operator yazır...</div>
+  <div class="chat-input">
+    <input type="file" id="fileInput" accept="image/*" hidden>
+    <button class="icon-btn img-btn" id="imgBtn">🖼️</button>
+    <input type="text" class="msg-input" id="textInput" placeholder="Mesaj yaz...">
+    <button class="icon-btn send-btn" id="sendBtn">➜</button>
+  </div>
+</div>
+
+<div class="footer">
+  <a href="index.html" class="footer-item">
+    <div class="footer-icon">🏠</div>Ana Səhifə
+  </a>
+  <a href="games.html" class="footer-item">
+    <div class="footer-icon">🎰</div>Oyunlar
+  </a>
+  <a href="bonus.html" class="footer-item">
+    <div class="footer-icon">🎁</div>Bonus
+  </a>
+  <a href="support.html" class="footer-item active">
+    <div class="footer-icon">🎧</div>Dəstək
+  </a>
+</div>
+
+<script type="module">
+import { initializeApp }    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getDatabase,
+  ref, push, get, set, update,
+  onChildAdded, onChildChanged, onValue,
+  off
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+/* ════════════════════════════════════════════════
+   FIREBASE INIT
+   ════════════════════════════════════════════════ */
+const firebaseConfig = {
+  apiKey:            "AIzaSyBmtDa9fkBjd-J2tToJF_8CcPVZs3pJZsM",
+  authDomain:        "batumi-kazino-5a748.firebaseapp.com",
+  databaseURL:       "https://batumi-kazino-5a748-default-rtdb.firebaseio.com",
+  projectId:         "batumi-kazino-5a748",
+  storageBucket:     "batumi-kazino-5a748.firebasestorage.app",
+  messagingSenderId: "501153230995",
+  appId:             "1:501153230995:web:8dac82ebf1904fc1881d66"
+};
+const app = initializeApp(firebaseConfig);
+const db  = getDatabase(app);
+
+/* ════════════════════════════════════════════════
+   AUTH GUARD
+   ════════════════════════════════════════════════ */
+const customerId = localStorage.getItem("customerId");
+if (!customerId) { window.location.href = "login.html"; }
+
+/* ════════════════════════════════════════════════
+   TELEGRAM  (server-side in production — kept
+   here only for backward-compat with spec)
+   ════════════════════════════════════════════════ */
+const TG_TOKEN = "8209076753:AAF0n3PM87jo8nO08OO545kbN0Y2Vu5FVZg";
+const TG_CHAT  = "5106471763";
+
+function notifyTelegram(username, phone, text, isImage) {
+  const msg = isImage
+    ? `🔔 Yeni Support Mesajı\n\n👤 İstifadəçi: ${username}\n📞 Telefon: ${phone}\n\n📷 Şəkil göndərildi`
+    : `🔔 Yeni Support Mesajı\n\n👤 İstifadəçi: ${username}\n📞 Telefon: ${phone}\n\n💬 Mesaj:\n${text}`;
+  // fire-and-forget; never awaited so it never blocks UI
+  fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, {
+    method:  "POST",
+    headers: { "Content-Type": "application/json" },
+    body:    JSON.stringify({ chat_id: TG_CHAT, text: msg })
+  }).catch(() => {});
+}
+
+/* ════════════════════════════════════════════════
+   DOM
+   ════════════════════════════════════════════════ */
+const floatBtn   = document.getElementById("floatBtn");
+const badge      = document.getElementById("badge");
+const chatBox    = document.getElementById("chatBox");
+const closeBtn   = document.getElementById("closeBtn");
+const messagesEl = document.getElementById("messages");
+const typingBar  = document.getElementById("typingBar");
+const textInput  = document.getElementById("textInput");
+const sendBtn    = document.getElementById("sendBtn");
+const imgBtn     = document.getElementById("imgBtn");
+const fileInput  = document.getElementById("fileInput");
+
+/* ════════════════════════════════════════════════
+   STATE  — single source of truth
+   ════════════════════════════════════════════════ */
+const state = {
+  isOpen:       false,
+  unread:       0,
+  sndCooldown:  false,
+  typingTimer:  null,
+
+  // Listener unsubscribe handles (returned by onChildAdded / onChildChanged / onValue)
+  // Stored so we can call off() precisely — no ref() object leaks
+  unsubAdded:   null,
+  unsubChanged: null,
+  unsubTyping:  null,
+
+  // Stable anchor: highest server timestamp seen during initial load.
+  // Only messages with timestamp > anchor are treated as "new" by onChildAdded.
+  initAnchor:   0,
+
+  // Keys rendered into DOM — prevents duplicate DOM nodes
+  rendered:     new Set(),
+
+  // Keys whose Telegram notification has been sent — prevents double-fire
+  //   on re-attach after visibilitychange
+  tgSent:       new Set(),
+};
+
+/* ════════════════════════════════════════════════
+   HELPERS
+   ════════════════════════════════════════════════ */
+const nowStr = () =>
+  new Date().toLocaleTimeString("az-AZ", { hour: "2-digit", minute: "2-digit", hour12: false });
+
+const esc = s =>
+  String(s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+
+const scrollDown = () =>
+  setTimeout(() => { messagesEl.scrollTop = messagesEl.scrollHeight; }, 50);
+
+function getUserMeta() {
+  return {
+    username: localStorage.getItem("username") || "İstifadəçi",
+    phone:    localStorage.getItem("phone")    || "Naməlum",
+  };
+}
+
+/* ════════════════════════════════════════════════
+   SOUND  — deduplicated with cooldown
+   ════════════════════════════════════════════════ */
+function beep() {
+  if (state.sndCooldown) return;
+  state.sndCooldown = true;
+  setTimeout(() => { state.sndCooldown = false; }, 3000);
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const o = ctx.createOscillator();
+    const g = ctx.createGain();
+    o.connect(g);
+    g.connect(ctx.destination);
+    o.frequency.setValueAtTime(880, ctx.currentTime);
+    o.frequency.setValueAtTime(660, ctx.currentTime + 0.12);
+    g.gain.setValueAtTime(0.3, ctx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4);
+    o.start();
+    o.stop(ctx.currentTime + 0.4);
+  } catch (_) {}
+}
+
+/* ════════════════════════════════════════════════
+   BADGE
+   ════════════════════════════════════════════════ */
+function setBadge(n) {
+  state.unread         = Math.max(0, n);
+  badge.textContent    = state.unread > 9 ? "9+" : state.unread;
+  badge.classList.toggle("show", state.unread > 0);
+}
+
+/* ════════════════════════════════════════════════
+   DOM: RENDER  (idempotent — skips already-rendered ids)
+   ════════════════════════════════════════════════ */
+function renderMessage(id, data) {
+  if (state.rendered.has(id)) return;
+  state.rendered.add(id);
+
+  const div       = document.createElement("div");
+  div.id          = "m_" + id;
+  div.className   = "msg " + (data.sender === "customer" ? "customer" : "admin");
+
+  const tick = data.sender === "customer"
+    ? `<span class="tick">${data.seen ? " ✓✓" : " ✓"}</span>`
+    : "";
+
+  const body = data.image
+    ? `<img src="${esc(data.image)}" class="msg-img" loading="lazy">`
+    : `<span>${esc(data.text || "")}</span>`;
+
+  div.innerHTML = `${body}<div class="msg-time">${esc(data.time || "")}${tick}</div>`;
+  messagesEl.appendChild(div);
+  scrollDown();
+}
+
+/* ════════════════════════════════════════════════
+   DOM: UPDATE TICK  (called by onChildChanged)
+   ════════════════════════════════════════════════ */
+function updateTick(id, seen) {
+  const el = document.getElementById("m_" + id);
+  if (!el) return;
+  const tk = el.querySelector(".tick");
+  if (tk) tk.textContent = seen ? " ✓✓" : " ✓";
+}
+
+/* ════════════════════════════════════════════════
+   MARK ADMIN MESSAGES SEEN
+   Called once when user opens chat.
+   Uses a single batched update — not per-message writes.
+   ════════════════════════════════════════════════ */
+async function markAdminMessagesSeen() {
+  const snap = await get(ref(db, "messages/" + customerId));
+  if (!snap.exists()) return;
+
+  const updates = {};
+  snap.forEach(child => {
+    const d = child.val();
+    if (d && d.sender === "admin" && !d.seen) {
+      updates[child.key + "/seen"] = true;
+    }
+  });
+
+  if (Object.keys(updates).length) {
+    await update(ref(db, "messages/" + customerId), updates);
+  }
+}
+
+/* ════════════════════════════════════════════════
+   DETACH ALL LISTENERS  — safe to call multiple times
+   ════════════════════════════════════════════════ */
+function detachListeners() {
+  if (state.unsubAdded)   { state.unsubAdded();   state.unsubAdded   = null; }
+  if (state.unsubChanged) { state.unsubChanged(); state.unsubChanged = null; }
+  if (state.unsubTyping)  { state.unsubTyping();  state.unsubTyping  = null; }
+}
+
+/* ════════════════════════════════════════════════
+   ATTACH LISTENERS
+   Architecture:
+     1. get()          — load history, set initAnchor, render silently
+     2. onChildAdded   — only fires for keys with timestamp > initAnchor (new)
+     3. onChildChanged — tick updates for customer's own messages
+     4. onValue(adminTyping) — typing indicator
+   ════════════════════════════════════════════════ */
+async function attachListeners() {
+  // Always detach first — prevents duplicate listener stacks
+  detachListeners();
+
+  const msgsRef = ref(db, "messages/" + customerId);
+
+  /* ── Step 1: load history ── */
+  const initSnap = await get(msgsRef);
+  let maxTs = 0;
+
+  if (initSnap.exists()) {
+    const entries = [];
+    initSnap.forEach(c => entries.push({ key: c.key, val: c.val() }));
+    entries.sort((a, b) => (a.val.timestamp || 0) - (b.val.timestamp || 0));
+
+    for (const { key, val } of entries) {
+      renderMessage(key, val);                    // render without any side-effects
+      if ((val.timestamp || 0) > maxTs) maxTs = val.timestamp || 0;
+    }
+  }
+
+  // Anchor: everything at or before this ts is "history"
+  state.initAnchor = maxTs;
+
+  /* ── Step 2: onChildAdded — new messages only ── */
+  state.unsubAdded = onChildAdded(msgsRef, (snap) => {
+    const id   = snap.key;
+    const data = snap.val();
+    if (!data) return;
+
+    const ts    = data.timestamp || 0;
+    const isNew = ts > state.initAnchor;
+
+    // Always render (idempotent) — covers edge-case where message arrived
+    // between get() and onChildAdded() subscription
+    renderMessage(id, data);
+
+    if (!isNew) return; // history item slipping through — no side-effects
+
+    /* ── New admin message ── */
+    if (data.sender === "admin") {
+      if (state.isOpen) {
+        // Chat open → mark seen immediately
+        update(ref(db, "messages/" + customerId + "/" + id), { seen: true }).catch(() => {});
+      } else {
+        // Chat closed → badge + sound
+        setBadge(state.unread + 1);
+        beep();
+      }
+      return; // admin messages never trigger Telegram
+    }
+
+    /* ── New customer message ── */
+    if (data.sender === "customer") {
+      // Deduplicated Telegram notification
+      if (!state.tgSent.has(id)) {
+        state.tgSent.add(id);
+        const isImg = !!data.image;
+        notifyTelegram(data.username || "", data.phone || "", data.text || "", isImg);
+      }
+      // Customer's own messages: never badge, never beep
+    }
+  });
+
+  /* ── Step 3: onChildChanged — tick / seen updates ── */
+  state.unsubChanged = onChildChanged(msgsRef, (snap) => {
+    const id   = snap.key;
+    const data = snap.val();
+    if (!data) return;
+
+    // Update delivery tick for customer's outgoing messages
+    if (data.sender === "customer") {
+      updateTick(id, !!data.seen);
+    }
+
+    // If admin message arrives as "changed" AND not yet rendered (race-condition safety)
+    renderMessage(id, data);
+  });
+
+  /* ── Step 4: admin typing indicator ── */
+  const typingRef     = ref(db, "adminTyping/" + customerId);
+  state.unsubTyping   = onValue(typingRef, (snap) => {
+    typingBar.style.display = snap.val() ? "block" : "none";
+  });
+}
+
+/* ════════════════════════════════════════════════
+   OPEN / CLOSE CHAT
+   ════════════════════════════════════════════════ */
+floatBtn.onclick = () => {
+  state.isOpen = true;
+  chatBox.classList.add("open");
+  floatBtn.style.display = "none";
+  setBadge(0);
+  markAdminMessagesSeen();
+  scrollDown();
+};
+
+closeBtn.onclick = () => {
+  state.isOpen = false;
+  chatBox.classList.remove("open");
+  floatBtn.style.display = "flex";
+  // Clear customer typing on close
+  _clearCustomerTyping();
+};
+
+/* ════════════════════════════════════════════════
+   CUSTOMER TYPING INDICATOR
+   ════════════════════════════════════════════════ */
+function _clearCustomerTyping() {
+  if (state.typingTimer) { clearTimeout(state.typingTimer); state.typingTimer = null; }
+  set(ref(db, "customerTyping/" + customerId), false).catch(() => {});
+}
+
+textInput.addEventListener("input", () => {
+  set(ref(db, "customerTyping/" + customerId), true).catch(() => {});
+  if (state.typingTimer) clearTimeout(state.typingTimer);
+  state.typingTimer = setTimeout(_clearCustomerTyping, 2500);
+});
+
+/* ════════════════════════════════════════════════
+   SEND TEXT
+   ════════════════════════════════════════════════ */
+async function sendText() {
+  const txt = textInput.value.trim();
+  if (!txt) return;
+  textInput.value = "";
+  _clearCustomerTyping();
+
+  const { username, phone } = getUserMeta();
+
+  await push(ref(db, "messages/" + customerId), {
+    sender:      "customer",
+    text:        txt,
+    time:        nowStr(),
+    timestamp:   Date.now(),
+    seen:        false,
+    readByAdmin: false,
+    username,
+    phone,
+  });
+  // NOTE: Telegram notification is handled by onChildAdded (tgSent dedup)
+  // so we do NOT call notifyTelegram() here to avoid double-fire
+}
+
+sendBtn.onclick = sendText;
+textInput.addEventListener("keydown", e => {
+  if (e.key === "Enter") { e.preventDefault(); sendText(); }
+});
+
+/* ════════════════════════════════════════════════
+   SEND IMAGE
+   ════════════════════════════════════════════════ */
+imgBtn.onclick = () => fileInput.click();
+
+fileInput.onchange = async () => {
+  const file = fileInput.files[0];
+  if (!file) return;
+  fileInput.value = "";
+
+  const { username, phone } = getUserMeta();
+
+  const reader = new FileReader();
+  reader.onload = async (e) => {
+    await push(ref(db, "messages/" + customerId), {
+      sender:      "customer",
+      image:       e.target.result,
+      time:        nowStr(),
+      timestamp:   Date.now(),
+      seen:        false,
+      readByAdmin: false,
+      username,
+      phone,
+    });
+    // Same as text: Telegram handled by onChildAdded
+  };
+  reader.readAsDataURL(file);
+};
+
+/* ════════════════════════════════════════════════
+   VISIBILITY CHANGE
+   On hidden: detach listeners, clear typing state.
+   On visible: re-attach listeners cleanly.
+   initAnchor is NOT reset — re-attach uses fresh get()
+   so anchor advances; no message will be re-treated as new.
+   ════════════════════════════════════════════════ */
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "hidden") {
+    detachListeners();
+    _clearCustomerTyping();
+  } else {
+    // attachListeners() calls detachListeners() again internally (safe)
+    attachListeners();
+  }
+});
+
+/* ════════════════════════════════════════════════
+   BOOT
+   ════════════════════════════════════════════════ */
+attachListeners();
+</script>
+</body>
+</html>
